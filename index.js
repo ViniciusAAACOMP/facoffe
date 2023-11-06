@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const subscribeRouter = require('./routes/sub/sub');
-const unsubscribeRouter = require('./routes/sub/unsub');
+const subscribeRouter = require('./routes/sub/subscribe');
+const unsubscribeRouter = require('./routes/sub/unsubscribe');
 
 const app = express();
 const port = 3000;
