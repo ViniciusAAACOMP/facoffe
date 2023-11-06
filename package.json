@@ -1,0 +1,19 @@
+{
+  "name": "facoffe",
+  "version": "1.0.0",
+  "description": "Repositório para o trabalho prático de Técnicas Avançadas em Desenvolvimento de Software da turma 2023.2 da FACOM-UFMS",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "Vinícius Bruschi , Rafael Costa",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
