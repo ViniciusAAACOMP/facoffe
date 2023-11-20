@@ -4,7 +4,8 @@
   "description": "Repositório para o trabalho prático de Técnicas Avançadas em Desenvolvimento de Software da turma 2023.2 da FACOM-UFMS",
   "main": "index.js",
   "scripts": {
-    "swagger-autogen": "node swagger.js"
+    "swagger-autogen": "node swagger.js",
+    "dev": "nodemon index.js"
   },
   "keywords": [],
   "author": "Vinícius Bruschi , Rafael Costa",
@@ -13,9 +14,11 @@
     "body-parser": "^1.20.2",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
+    "nodemon": "^3.0.1",
     "pg": "^8.11.3",
     "swagger-autogen": "^2.23.4",
-    "swagger-ui-express": "^4.1.4"
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^4.6.3"
   },
   "directories": {
     "test": "tests"
