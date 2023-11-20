@@ -1,5 +1,3 @@
-const express = require('express');
-const router = express.Router();
 const mockUser = require('./mockUser');
 
 let is_subscribed = false;
@@ -14,9 +12,12 @@ const Unsubscribe = (user) => {
   return { success: true, message: `Assinatura cancelada para o usuário ${user.nome}.` };
 };
 
-router.delete('/', (req, res) => {
-  const result = Unsubscribe(mockUser);
-  res.json(result);
-});
 
-module.exports = router;
+const Subscribe = (user, newPlan) => {
+  if (!user) {
+    return { success: false, message: 'Usuário não encontrado.' };
+  }
+  is_subscribed = true;
+  currentPlan = newPlan;
+  return { success: true, message: `Assinatura realizada com sucesso para o usuário ${user.nome} ao plano ${newPlan}.` };
+};

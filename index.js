@@ -1,16 +1,15 @@
+require("dotenv").config();
+
 const express = require('express');
-const bodyParser = require('body-parser');
-const subscribeRouter = require('./routes/sub/subscribe');
-const unsubscribeRouter = require('./routes/sub/unsubscribe');
-
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
+app.use(express.json());
 
-app.use(bodyParser.json());
-
-app.use('/sub/sub', subscribeRouter);
-app.use('/sub/unsub', unsubscribeRouter);
-
-app.listen(port, () => {
-  console.log(`App listening at http://localhost:${port}`);
-});
+app.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
+app.get('/usuarios', async (req, res) => {
+    const results = await db.selectCustomers();
+    res.json(results);
+})
+//inicia o servidor
+app.listen(port);
+console.log('API funcionando!');
