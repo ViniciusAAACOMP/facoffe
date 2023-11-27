@@ -25,6 +25,41 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+/**
+ * @swagger
+ * /sub:
+ *   post:
+ *     summary: Criar Assinatura
+ *     description: Rota com autenticação para criação de assinatura.
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           example:
+ *             usuario: "Vinicius"
+ *             plano: "Completo"
+ *             periodo: "Mensal"
+ *             data_inicio: "2023-01-01"
+ *             data_termino: "2023-02-01"
+ *             is_active: true
+ *     responses:
+ *       201:
+ *         description: Assinatura criada com sucesso
+ *       401:
+ *         description: Falha na autenticação
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: 'Falha na autenticação'
+ *               details: 'Mensagem de erro detalhada'
+ *       500:
+ *         description: Erro ao criar a assinatura
+ *         content:
+ *           application/json:
+ *             example:
+ *               error: 'Erro ao criar a assinatura'
+ *               details: 'Mensagem de erro detalhada'
+ */
 router.post('/', async (req, res) => {
   usuario = await userService.selectCustomer(req.body.usuario);
   plano = await planoService.selectPlan(req.body.plano);

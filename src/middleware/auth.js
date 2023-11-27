@@ -1,5 +1,4 @@
 const axios = require('axios');
-const { response } = require('express');
 const jwt = require('jsonwebtoken');
 
 function obterToken(email, senha) {

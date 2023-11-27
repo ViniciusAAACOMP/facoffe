@@ -3,9 +3,12 @@ const express = require('express');
 const userRoutes = require('./src/routes/users.routes.js');
 const subsRoutes = require('./src/routes/subs.routes.js');
 const plansRoutes = require('./src/routes/plans.routes.js');
+const swaggerUi = require('swagger-ui-express');
+const swaggerSpec = require('./swagger');
 const app = express();
 
 app.use(express.json());
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 app.use('/sub', subsRoutes);
 app.use('/usuarios', userRoutes);
 app.use('/planos', plansRoutes);
