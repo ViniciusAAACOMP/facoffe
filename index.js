@@ -1,20 +1,17 @@
-const subscriptionRoutes = require('./routes/subscriptionRoutes');
-const userRoutes = require('./routes/userRoutes');
-const planRoutes = require('./routes/planRoutes');
-require("dotenv").config();
-
+require('dotenv').config();
 const express = require('express');
+const userRoutes = require('./src/routes/users.routes.js');
+const subsRoutes = require('./src/routes/subs.routes.js');
+const plansRoutes = require('./src/routes/plans.routes.js');
 const app = express();
-const port = process.env.PORT;
 
 app.use(express.json());
-app.get('/', (req, res) => res.json({ message: 'Funcionando!' }));
+app.use('/sub', subsRoutes);
+app.use('/usuarios', userRoutes);
+app.use('/planos', plansRoutes);
+app.get('/', (req, res) => res.json({ message: 'Servidor Facoffee' }));
 
-//Rotas
-app.use('/sub', subscriptionRoutes);
-app.use('/user', userRoutes);
-app.use('/plans', planRoutes);
-
-//inicia o servidor
-app.listen(port);
-console.log('API funcionando!');
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Servidor rodando na porta ${port}`);
+});
